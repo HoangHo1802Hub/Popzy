@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./assets/highlight/styles.css" media="all" />
   <link rel="stylesheet" href="./assets/styles.css" media="all" />
+  <link rel="stylesheet" href="./src/popzy.css">
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 
@@ -194,6 +195,14 @@ modal.close();</code></pre>
           <code>content</code> will take precedence.
         </td>
       </tr>
+      <tr>Add commentMore actions
+        <td>cssClass</td>
+        <td>array</td>
+        <td>
+          Custom CSS classes applied to the modal containerAdd commentMore actions
+          (default: <code>[]</code>)
+        </td>
+      </tr>
       <tr>
         <td>footer</td>
         <td>boolean</td>
@@ -216,6 +225,26 @@ modal.close();</code></pre>
         <td>
           Defines methods to close the modal (default:
           <code>['overlay', 'button', 'escape']</code>)
+        </td>
+      </tr>
+      <tr>Add commentMore actions
+        <td>enableScrollLock</td>
+        <td>boolean</td>
+        <td>
+          Enables or disables scroll locking when the modal is
+          open. When set to
+          <code>true</code>, it prevents scrolling on the target
+          element specified by <code>scrollLockTarget</code>.
+          Default: <code>true</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>scrollLockTarget</td>Add commentMore actions
+        <td>function</td>
+        <td>
+          A callback that returns the element to apply scroll
+          locking on. By default, it locks scrolling on
+          <code>document.body</code>.
         </td>
       </tr>
       <tr>
@@ -376,9 +405,20 @@ modal.close();</code></pre>
   </div>
   <!-- /CONTAINER -->
 
+  <template id="modal-1">
+    <h1>Template Modal 1</h1>
+  </template>
+
   <script src="./assets/highlight/highlight.js"></script>
+  <script src="./src/popzy.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
+
+    const modal1 = new Popzy({
+      templateId: "modal-1",
+      content: "<h1>Content Modal 1</h1>",
+      enableScrollLock: true,
+    });
   </script>
 </body>
 
